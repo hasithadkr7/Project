@@ -14,18 +14,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final Helper helper = new Helper();
-		Button button = (Button) findViewById(R.id.button1);
-		final TextView textView = (TextView) findViewById(R.id.textView1);
-		button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				helper.processText();
-				String name = helper.getContactName();
-				System.out.println("contact name = "+name);
-				textView.setText(name);
-			}
-		});
 	}
 
 	@Override

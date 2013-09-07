@@ -33,7 +33,7 @@ public class Filter extends BroadcastReceiver {
                     	sb.append(text);
                     }
                 }
-                String number = "+94711069486"; //add the number that you want to filter
+                String number = "+94717516043"; //add the number that you want to filter
                 if (sender.equals(number)) {
                     abortBroadcast();
                     helper.temp = text;
