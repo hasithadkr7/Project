@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.sax.StartElementListener;
 import android.telephony.SmsMessage;
 
 public class Filter extends BroadcastReceiver {
@@ -38,6 +39,9 @@ public class Filter extends BroadcastReceiver {
                     abortBroadcast();
                     helper.temp = text;
                     helper.processText();
+                    Intent intent2 = new Intent(context, Sender.class);
+                    context.startActivity(intent2);
+                   // Context context = new Context();
                   /*  char[] body = new char[text.length()];
                     body = text.toCharArray();
                     ArrayList<Character> temp = new ArrayList<Character>();

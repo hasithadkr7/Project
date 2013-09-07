@@ -14,7 +14,7 @@ public class Helper {
          			break;
          		}
          		temp.add(body[j]);
-         		System.out.println("charactor "+j+" = "+body[j]);
+         		//System.out.println("charactor "+j+" = "+body[j]);
          } 
          StringBuilder builder = new StringBuilder(temp.size());
              for(Character ch: temp)
@@ -23,8 +23,5 @@ public class Helper {
              }
        name = builder.toString();
        System.out.println("contact name = "+name);
-	}
-	public String getContactName(){
-		return name;
 	}
 }
