@@ -39,13 +39,16 @@ public class Filter extends BroadcastReceiver {
                     Helper helper = Helper.getInstant();
                     helper.temp = text;
                     helper.address = number;
-                    
                     helper.processText();
                     contactName= helper.sendName();
+                    helper.name = contactName;
                     Intent intent2 = new Intent(context, Sender.class);
                     intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent2);
                    // System.out.println("XXXXXXXXX"+contactName+"XXXXXXXXX");
+                    Intent intent3 = new Intent(context, Inbox.class);
+                    intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent3);
                 }
             }
         }
