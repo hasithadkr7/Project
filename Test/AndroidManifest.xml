@@ -23,7 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.test.Sender"></activity>
+        <activity 
+            android:name="com.example.test.Sender"
+            android:configChanges="keyboardHidden|orientation|screenLayout">
+        </activity>
         <receiver android:name="com.example.test.Filter" > 
             <intent-filter android:priority="1">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

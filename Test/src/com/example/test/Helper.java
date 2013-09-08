@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Helper {
 	String temp;
 	String name;
+	private static Helper helper=null;
+	private Helper(){
+		
+	}
 	public void processText() {
 		 char[] body = new char[temp.length()];
          body = temp.toCharArray();
@@ -22,6 +26,16 @@ public class Helper {
                  builder.append(ch);
              }
        name = builder.toString();
-       System.out.println("contact name = "+name);
+      // System.out.println("XXXXXXXXXX contact name = "+name);
+      // return name;
+	}
+	public String sendName() {
+		return this.name;
+	}
+	public static Helper getInstant(){
+		if(helper==null){
+			helper = new Helper();
+		}
+		return helper;
 	}
 }

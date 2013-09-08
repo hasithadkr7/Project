@@ -12,7 +12,6 @@ import android.telephony.SmsMessage;
 public class Filter extends BroadcastReceiver {
 	String text;
 	String contactName;
-	Helper helper = new Helper();
 	@Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
@@ -37,29 +36,14 @@ public class Filter extends BroadcastReceiver {
                 String number = "+94717516043"; //add the number that you want to filter
                 if (sender.equals(number)) {
                     abortBroadcast();
+                    Helper helper = Helper.getInstant();
                     helper.temp = text;
                     helper.processText();
+                    contactName= helper.sendName();
                     Intent intent2 = new Intent(context, Sender.class);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent2);
-                   // Context context = new Context();
-                  /*  char[] body = new char[text.length()];
-                    body = text.toCharArray();
-                    ArrayList<Character> temp = new ArrayList<Character>();
-                    for(int j=1;j<body.length;j++){
-                    		if(body[j]==':'){
-                    			break;
-                    		}
-                    		temp.add(body[j]);
-                    		System.out.println("charactor "+j+" = "+body[j]);
-                    } 
-                    StringBuilder builder = new StringBuilder(temp.size());
-                        for(Character ch: temp)
-                        {
-                            builder.append(ch);
-                        }
-                  contactName = builder.toString();
-                  System.out.println("contact name = "+builder.toString());
-                  helper.name = contactName;*/
+                   // System.out.println("XXXXXXXXX"+contactName+"XXXXXXXXX");
                 }
             }
         }

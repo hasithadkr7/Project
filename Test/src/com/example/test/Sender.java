@@ -25,14 +25,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Sender extends Activity {
-	//private Button button;
 	String check;
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.message);
-		Helper helper = new Helper();
+		setContentView(R.layout.custom_toast);
+		Helper helper = Helper.getInstant();
 		check = helper.name;
-		System.out.println("XXXXXXXXXXXXXX "+check+" XXXXXXXXXXXXXXX");
+		System.out.println("XXXXXXXXXXXXXX"+check+"XXXXXXXXXXXXXXX");
 		ContentResolver cr = getContentResolver();  
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,null, null, null, null);  
 		if (cur.getCount() > 0) {  
@@ -49,15 +48,14 @@ public class Sender extends Activity {
 							ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",   
 									new String[]{id}, null);  
 					while (pCur.moveToNext()) {  
-						if(check.equals(name)){            
+						if(check.equals(name)){   
 							Uri my_contact_Uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_URI, String.valueOf(id));  
 							InputStream photo_stream = ContactsContract.Contacts.openContactPhotoInputStream(getContentResolver(),my_contact_Uri);        
 							BufferedInputStream buf = new BufferedInputStream(photo_stream);  
 							Bitmap my_btmp = BitmapFactory.decodeStream(buf);  
 							
 							LayoutInflater inflater = getLayoutInflater();
-			 
-							View layout = inflater.inflate(R.layout.message,
+							View layout = inflater.inflate(R.layout.custom_toast,
 							  (ViewGroup) findViewById(R.id.custom_toast_layout_id));
 			 
 							// set image
@@ -67,7 +65,7 @@ public class Sender extends Activity {
 							// set a message
 							TextView text = (TextView) layout.findViewById(R.id.text);
 							text.setText(name);
-			 
+							System.out.println("SSSSSSSSSSSSSSSS"+name+"SSSSSSSSSSSSSSSS");
 							// Toast...
 							Toast toast = new Toast(getApplicationContext());
 							toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
