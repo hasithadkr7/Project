@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Helper {
 	String temp;
 	String name;
+	String contact,address,message;
 	private static Helper helper=null;
 	private Helper(){
 		
 	}
 	public void processText() {
+		message = temp;
 		 char[] body = new char[temp.length()];
          body = temp.toCharArray();
          ArrayList<Character> temp = new ArrayList<Character>();

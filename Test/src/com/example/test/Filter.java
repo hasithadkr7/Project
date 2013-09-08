@@ -38,6 +38,8 @@ public class Filter extends BroadcastReceiver {
                     abortBroadcast();
                     Helper helper = Helper.getInstant();
                     helper.temp = text;
+                    helper.address = number;
+                    
                     helper.processText();
                     contactName= helper.sendName();
                     Intent intent2 = new Intent(context, Sender.class);
