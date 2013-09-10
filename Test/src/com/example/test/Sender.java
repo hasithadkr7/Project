@@ -7,6 +7,7 @@ import java.io.InputStream;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,7 +30,7 @@ public class Sender extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.sms);
+		//setContentView(R.layout.sms);
 		Helper helper = Helper.getInstant();
 		check = helper.name;
 		ContentResolver cr = getContentResolver();  
@@ -53,26 +54,20 @@ public class Sender extends Activity {
 							InputStream photo_stream = ContactsContract.Contacts.openContactPhotoInputStream(getContentResolver(),my_contact_Uri);        
 							BufferedInputStream buf = new BufferedInputStream(photo_stream);  
 							Bitmap my_btmp = BitmapFactory.decodeStream(buf);  
-							ImageView view = (ImageView) findViewById(R.id.imageView1);
-							view.setImageBitmap(my_btmp);
-							TextView textView = (TextView) findViewById(R.id.textView1);
-							textView.setText(name);
-							/*LayoutInflater inflater = getLayoutInflater();
+							LayoutInflater inflater = getLayoutInflater();
 							View layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_layout_id));
 							// set image
 							ImageView image = (ImageView) layout.findViewById(R.id.image);
 							image.setImageBitmap(my_btmp);
-			 
 							// set a message
 							TextView text = (TextView) layout.findViewById(R.id.text);
 							text.setText(name);
-							System.out.println("SSSSSSSSSSSSSSSS"+name+"SSSSSSSSSSSSSSSS");
-							// Toast...
+							//Custom Toast...
 							Toast toast = new Toast(getApplicationContext());
 							toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 							toast.setDuration(Toast.LENGTH_LONG);
 							toast.setView(layout);
-							toast.show();*/
+							toast.show();
 						}  
 					}   
 					pCur.close();  
