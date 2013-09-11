@@ -8,6 +8,7 @@ import java.io.InputStream;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,7 +31,6 @@ public class Sender extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.sms);
 		Helper helper = Helper.getInstant();
 		check = helper.name;
 		ContentResolver cr = getContentResolver();  
@@ -61,10 +61,14 @@ public class Sender extends Activity {
 							image.setImageBitmap(my_btmp);
 							// set a message
 							TextView text = (TextView) layout.findViewById(R.id.text);
-							text.setText(name);
+							text.setText("New Message from \n"+name);
 							//Custom Toast...
+							Context context = getApplicationContext();
+							Intent intent3 = new Intent(context, Inbox.class);
+			                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			                context.startActivity(intent3);
 							Toast toast = new Toast(getApplicationContext());
-							toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+							toast.setGravity(Gravity.BOTTOM, 0, 0);
 							toast.setDuration(Toast.LENGTH_LONG);
 							toast.setView(layout);
 							toast.show();

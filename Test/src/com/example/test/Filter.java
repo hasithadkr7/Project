@@ -46,9 +46,6 @@ public class Filter extends BroadcastReceiver {
                     Intent intent2 = new Intent(context, Sender.class);
                     intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent2);
-                    Intent intent3 = new Intent(context, Inbox.class);
-                    intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent3);
                 }
             }
         }

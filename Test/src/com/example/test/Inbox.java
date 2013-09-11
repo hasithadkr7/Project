@@ -13,8 +13,6 @@ public class Inbox extends Activity {
 		Helper helper = Helper.getInstant();
 		this.body  = helper.message;
 		this.address = helper.address;
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		ContentValues values = new ContentValues();
 		values.put("address", address);
 		values.put("body", body);
