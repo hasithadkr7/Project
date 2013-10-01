@@ -2,15 +2,18 @@ package com.example.test;
 
 import java.util.ArrayList;
 
+import android.graphics.Bitmap;
+
 public class Helper {
 	String temp;
 	String name;
 	String address,message;
 	int m=0;
+	Bitmap senderImage = null;
 	private static Helper helper=null;
-	private Helper(){
+	/*private Helper(){
 		
-	}
+	}*/
 	public void processText() {		//get the name of the sender from the message body
 		message = temp;
 		 char[] body = new char[temp.length()];

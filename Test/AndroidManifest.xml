@@ -16,7 +16,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        android:theme ="@style/AppTheme">
         <activity
             android:name="com.example.test.MainActivity"
             android:label="@string/app_name" >
@@ -31,6 +31,9 @@
         </activity>
         <activity 
             android:name="com.example.test.Inbox">
+        </activity>
+        <activity 
+            android:name="com.example.test.CustomDialog">
         </activity>
         <receiver android:name="com.example.test.Filter" > 
             <intent-filter android:priority="1">

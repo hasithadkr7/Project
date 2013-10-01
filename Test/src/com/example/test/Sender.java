@@ -54,24 +54,29 @@ public class Sender extends Activity {
 							InputStream photo_stream = ContactsContract.Contacts.openContactPhotoInputStream(getContentResolver(),my_contact_Uri);        
 							BufferedInputStream buf = new BufferedInputStream(photo_stream);  
 							Bitmap my_btmp = BitmapFactory.decodeStream(buf);  
-							LayoutInflater inflater = getLayoutInflater();
-							View layout = inflater.inflate(R.layout.custom_toast,(ViewGroup) findViewById(R.id.custom_toast_layout_id));
+							//LayoutInflater inflater = getLayoutInflater();
 							// set image
-							ImageView image = (ImageView) layout.findViewById(R.id.image);
-							image.setImageBitmap(my_btmp);
+							//ImageView image = (ImageView) layout.findViewById(R.id.image);
+							//image.setImageBitmap(my_btmp);
+							//Helper helper = Helper.getInstant();
+							helper.senderImage = my_btmp;
 							// set a message
-							TextView text = (TextView) layout.findViewById(R.id.text);
-							text.setText("New Message from \n"+name);
+							//TextView text = (TextView) layout.findViewById(R.id.text);
+							//text.setText("New Message from \n"+name);
 							//Custom Toast...
 							Context context = getApplicationContext();
-							Intent intent3 = new Intent(context, Inbox.class);
+							/*Intent intent3 = new Intent(context, Inbox.class);
 			                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			                context.startActivity(intent3);
-							Toast toast = new Toast(getApplicationContext());
+			                context.startActivity(intent3);*/
+							Intent intent4 = new Intent(context,CustomDialog.class);
+							intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							context.startActivity(intent4);
+							/*Toast toast = new Toast(getApplicationContext());
 							toast.setGravity(Gravity.BOTTOM, 0, 0);
 							toast.setDuration(Toast.LENGTH_LONG);
 							toast.setView(layout);
-							toast.show();
+							toast.show();*/
+							//moveTaskToBack(true);
 						}  
 					}   
 					pCur.close();  

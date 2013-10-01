@@ -17,6 +17,7 @@ public class Inbox extends Activity {
 		values.put("address", address);
 		values.put("body", body);
 		System.out.println("address = "+address+" "+"body = "+body);
-		getContentResolver().insert(Uri.parse("content://sms/inbox"), values);
+		//getContentResolver().insert(Uri.parse("content://sms/inbox"), values);
+		moveTaskToBack(true);
 	}
 }
